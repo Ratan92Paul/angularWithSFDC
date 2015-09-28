@@ -1,0 +1,56 @@
+<table class="table table-bordered">
+    <thead>
+        <tr >
+            <th ng-click="sort('Id')">Id
+                <span class="glyphicon sort-icon" ng-show="sortKey === 'Id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('Name')">Name
+                <span class="glyphicon sort-icon" ng-show="sortKey === 'Name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('Age')">Age
+                <span class="glyphicon sort-icon" ng-show="sortKey === 'Age'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('Country')">Country
+                <span class="glyphicon sort-icon" ng-show="sortKey === 'Country'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+        </tr>
+        <tr >
+            <th >
+                <input type="text" ng-model="search.Id" placeholder="Search by Id" class="form-control input-sm"/>
+            </th>
+            <th >
+                <input type="text" ng-model="search.Name" placeholder="Search by Name" class="form-control input-sm"/>
+            </th>
+            <th>
+                <input type="text" ng-model="search.Age" placeholder="Search by Age" class="form-control input-sm"/>
+            </th>
+            <th>
+                <input type="text" ng-model="search.Country" placeholder="Search by Country" class="form-control input-sm"/>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr dir-paginate="user in users | filter:search | filter:globalSearch | orderBy:sortKey:reverse | itemsPerPage:3">
+            <td>{{user.Id}}</td>
+            <td>{{user.Name}}</td>
+            <td>{{user.Age}}</td>
+            <td>{{user.Country}}</td>
+        </tr>
+        <tr ng-if="users.length <= 0">
+            <td colspan="4">No item is available!</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="2" style="border:none;padding-top: 20px;">
+                <input type="text" ng-model="globalSearch" placeholder="Global search" class="form-control input-sm" style="width: 200px;"/>
+            </td>
+            <td style="border:none;">
+            </td>
+            <td colspan="2" style="border:none;padding: 0px;">
+                <dir-pagination-controls max-size="5" direction-links="true" boundary-links="true" >
+                </dir-pagination-controls>
+            </td>
+        </tr>
+    </tfoot>
+</table>
