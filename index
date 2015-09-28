@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css"/>
-    <link rel="stylesheet" href="css/font-awesome.css"/>
     <style>
         th{cursor: pointer;}
     </style>
-    <script src=bower_components/angular/angular.js></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
-    <script src="main.js"></script>
+    <script src=js/angular.js></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/dirPagination.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body ng-app="tableApp" >
 <ng-view></ng-view>
